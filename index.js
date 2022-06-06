@@ -20,19 +20,20 @@ var questionsArr = [
   answer: true
   },
 ] 
-function runQuiz() {
-  var numOfAgrees = 0
-  for (var i = 0; i < questionsArr.length; i++) {
-    var question = questionsArr[i]
-    var answer = confirm(question)
-    if (answer) {
-      numOfAgrees++
+function runQuiz(){
+  var score = 0
+  
+  for(var i = 0; i < questionsArr.length; i++){
+    var answer = confirm(questionsArr[i].question)
+
+    if(answer === questionsArr[i].answer){
+    score++
     }
   }
-  var score = ((answer / questionsArr.length) * 100)
-  if (score = 100) {
-    alert("You got a 100%!")
-  } else {
-    alert("Your total is " + (score.toFixed(2) + '%'))
+  
+  var finalscore = Math.round(score / questionsArr.length * 100)
+  
+  alert("Your score was " + finalscore + '%')
+  
   }
-}  
+
